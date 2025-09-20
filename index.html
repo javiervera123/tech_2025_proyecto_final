@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Tienda Virtual Emily</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="apple-touch-icon" href="/image/apple-icon.png">
+    <link rel="shortcut icon" type="image/x-icon" href="/image/favicon.ico">
+
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/templatemo.css">
+    <link rel="stylesheet" href="/css/custom.css">
+
+    <!-- Load fonts style after rendering the layout styles -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&display=swap">
+    <link rel="stylesheet" href="/css/fontawesome.min.css">
+
+    <!-- Cargar datos del carrusel -->
+    <script src="basedatos/datos.js" defer></script>
+</head>
+
+<body>
+    <!-- Contenedor para cargar la barra de menú usando JavaScript -->
+    <div id="menu"></div>
+
+    <!-- Start Banner Hero -->
+    <div id="template-mo-zay-hero-carousel" class="carousel slide" data-bs-ride="carousel">
+        <ol class="carousel-indicators"></ol>
+        <!-- El carrusel se llenará dinámicamente -->
+        <div class="carousel-inner"></div>
+    </div>
+
+    <!-- Contenido de la página - Inicio -->
+     <!-- Script del carrusel -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const carrusel_indicators = document.querySelector(".carousel-indicators");
+            const carrusel_inner = document.querySelector(".carousel-inner");
+
+            elementos_carrusel.forEach((elemento, indice) => {
+                // Indicadores
+                const li = document.createElement("li");
+                li.setAttribute("data-bs-target", "#template-mo-zay-hero-carousel");
+                li.setAttribute("data-bs-slide-to", indice);
+                if (indice === 0) li.classList.add("active");
+                carrusel_indicators.appendChild(li);
+
+                // Slides
+                const divItem = document.createElement("div");
+                divItem.classList.add("carousel-item");
+                if (indice === 0) divItem.classList.add("active");
+
+                divItem.innerHTML = `
+                    <div class="container">
+                        <div class="row p-3">
+                            <div class="mx-auto col-md-8 col-lg-6 order-lg-last">
+                                <img class="img-fluid" src="${elemento.imagen}" alt="">
+                            </div>
+                            <div class="col-lg-6 mb-0 d-flex align-items-center">
+                                <div class="text-align-left align-self-center">
+                                    <h1 class="h1 text-success"><b>${elemento.nombre}</b></h1>
+                                    <p>${elemento.descripcion}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                carrusel_inner.appendChild(divItem);
+            });
+            
+
+            // Cargar menú y pie de página
+            cargarFragmento("menu", "menu.html");
+            cargarFragmento("pie", "pie.html");
+        });
+    </script><!-- FIN DEL CARRUSEL -->
+     <!-- INICIO DE CATEGORÍAS -->
+    <section class="container py-5">
+        <header class="text-center mb-5">
+            <h2 class="h5 text-success">Categorías</h2>
+            <p>Explora las categorías de productos que ofrecemos</p>
+        </header>    
+        <div id="etiqueta_categorias" class="row">
+            <!-- Las categorías se llenarán dinámicamente -->
+        </div>
+    </section>
+
+    <script>
+        /* Se asume que lista_categorias está definida en basedatos/datos.js */
+        
+    document.addEventListener("DOMContentLoaded", () => {
+        let etiqueta_categorias = document.getElementById("etiqueta_categorias");
+        lista_categorias.forEach(categoria => {
+            let div = document.createElement("div");
+            div.classList.add("col-12", "col-md-3", "p-5", "mt-3");
+            div.innerHTML = `
+                <a href="#"><img src="${categoria.imagen}" class="rounded-circle img-fluid border"></a>
+                <h2 class="h5 text-center mt-3 mb-3">${categoria.nombre}</h2>
+                <p class="text-center">${categoria.descripcion}</p>
+                <p class="text-center"><a class="btn btn-success">Ir a comprar</a></p>
+            `;
+            etiqueta_categorias.appendChild(div);
+        });
+    });
+</script>
+    
+    <!-- FIN DE CATEGORÍAS -->
+
+    <!-- Contenido de la página - Final -->
+
+    
+
+    <!-- Scripts de librerías -->
+    <script src="/js/jquery-1.11.0.min.js"></script>
+    <script src="/js/jquery-migrate-1.2.1.min.js"></script>
+    <script src="/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/templatemo.js"></script>
+    <script src="/js/custom.js"></script>
+    <!-- Contenedor para cargar el pie de página usando JavaScript -->
+    <div id="pie"></div>
+    
+   
+    
+</body>
+
+</html>
