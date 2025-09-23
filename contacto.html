@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Tienda Virtual Emily</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="apple-touch-icon" href="/image/apple-icon.png">
+    <link rel="shortcut icon" type="image/x-icon" href="/image/favicon.ico">
+
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/templatemo.css">
+    <link rel="stylesheet" href="/css/custom.css">
+
+    <!-- Load fonts style after rendering the layout styles -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&display=swap">
+    <link rel="stylesheet" href="/css/fontawesome.min.css">
+    <!--
+    
+TemplateMo 559 Zay Shop
+
+https://templatemo.com/tm-559-zay-shop
+
+-->
+</head>
+
+<body>
+    <!-- Contenedor para cargar la barra de menú usando JavaScript -->
+    <div id="menu"></div>
+    <!-- Contenido de la página - Inicio -->
+    <!-- mapa Google maps -->
+    <!-- Start Contact -->
+    <div class="container py-5">
+        <div class="row g-4">
+            <!-- Columna Mapa -->
+            <div class="col-md-6">
+                <h3 class="mb-3">Ubicación</h3>
+                <div class="ratio ratio-16x9">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1988.0488520451431!2d-75.905702067364!3d4.753050360457029!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e387006c005c539%3A0xc8ab2b5f4a23698f!2sCl.%202a%20%23%202-110%2C%20Cartago%2C%20Valle%20del%20Cauca!5e0!3m2!1ses-419!2sco!4v1758587560741!5m2!1ses-419!2sco"
+                        style="border:0;" allowfullscreen="" loading="lazy">
+                    </iframe>
+                </div>
+            </div>
+
+            <!-- Columna Formulario -->
+            <div class="col-md-6">
+                <h3 class="mb-3">Contáctanos</h3>
+                <form method="post" role="form" id="contactForm" novalidate="novalidate">
+                    <div class="row">
+                        <div class="form-group col-md-6 mb-3">
+                            <label for="inputname">Nombre</label>
+                            <input type="text" class="form-control mt-1" id="name" name="name" placeholder="Tu nombre">
+                        </div>
+                        <div class="form-group col-md-6 mb-3">
+                            <label for="inputemail">Correo</label>
+                            <input type="email" class="form-control mt-1" id="email" name="email"
+                                placeholder="Tu correo">
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="inputsubject">Asunto</label>
+                        <input type="text" class="form-control mt-1" id="subject" name="subject" placeholder="Asunto">
+                    </div>
+                    <div class="mb-3">
+                        <label for="inputmessage">Mensaje</label>
+                        <textarea class="form-control mt-1" id="message" name="message"
+                            placeholder="Escribe tu mensaje..." rows="6"></textarea>
+                    </div>
+                    <div class="text-end mt-2">
+                        <button type="submit" class="btn btn-success btn-lg px-3">Enviar</button>
+                    </div>
+                    <script>
+                        // Capturar el formulario
+                            const form = document.querySelector("form");
+
+                            form.addEventListener("submit", function (e) {
+                                e.preventDefault(); // evita que se recargue la página
+
+                                // Obtener valores de los campos
+                                const nombre = document.getElementById("name").value;
+                                const correo = document.getElementById("email").value;
+                                const asunto = document.getElementById("subject").value;
+                                const mensaje = document.getElementById("message").value;
+
+                                // Mostrar mensaje en pantalla
+                                alert(`¡Gracias ${nombre}! Hemos recibido tu mensaje.\n\nAsunto: ${asunto}\nCorreo: ${correo}`);
+
+                                //  limpiar los campos después:
+                                form.reset();
+                            });
+                        
+                    </script>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- End Contact -->
+
+    <!-- Contenido de la página - Final -->
+    <!-- Contenedor para cargar el pie de página usando JavaScript -->
+    <div id="pie"></div>
+
+    <!-- Start Script -->
+    <script src="/js/jquery-1.11.0.min.js"></script>
+    <script src="/js/jquery-migrate-1.2.1.min.js"></script>
+    <script src="/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/templatemo.js"></script>
+    <script src="/js/custom.js"></script>
+    <!-- End Script -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            cargarFragmento("menu", "menu.html");
+            cargarFragmento("pie", "pie.html");
+        });
+    </script>
+</body>
+
+</html>
