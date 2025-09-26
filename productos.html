@@ -38,26 +38,27 @@ https://templatemo.com/tm-559-zay-shop
         <div class="row">
 
             <div class="col-lg-3">
-                <h1 class="h2 pb-4">Categories</h1>
+                <h1 class="h2 pb-4">Categorías</h1>
                 <ul id="etiqueta_categorias" class="list-unstyled ">
                     <li class="pb-3">
-                        <a class="collapsed d-flex justify-content-between h3 text-decoration-none" href="#">
-                            Género
+                        <a class="collapsed d-flex justify-content-between h4 text-decoration-none"
+                            href="productos.html">
+                            Mostrar todo
 
                         </a>
 
                     </li>
                 </ul>
             </div>
-            <!-- End Categories -->
-            <!-- script para llenar  dinamicamente-->
+            <!-- End Categorias -->
+            <!-- script para llenar  dinamicamente mostrando las categorias-->
             <script>
                 let etiqueta_categorias = document.getElementById("etiqueta_categorias");
                 lista_categorias.forEach(categoria => {
                     let li = document.createElement("li");
                     li.classList.add("pb-3");
                     li.innerHTML = `
-                        <a class="collapsed d-flex justify-content-between h4 text-decoration-none" href="#">
+                        <a class="collapsed d-flex justify-content-between h4 text-decoration-none" href="productos.html?cat=${categoria.codigo}">
                             ${categoria.nombre}
                         </a>
                     `;
@@ -69,64 +70,21 @@ https://templatemo.com/tm-559-zay-shop
                 <!-- listado de productos a la derecha-->
 
                 <div id="etiqueta_productos" class="row">
-                    <div class="col-md-4">
-                        <div class="card mb-4 product-wap rounded-0">
-                            <!-- iconos-->
-                            <div class="card rounded-0">
-                                <img class="card-img rounded-0 img-fluid" src="assets/img/shop_01.jpg">
-                                <div
-                                    class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
-                                    <ul class="list-unstyled">
-                                        <li><a class="btn btn-success text-white" href="shop-single.html"><i
-                                                    class="far fa-heart"></i></a></li>
-                                        <li><a class="btn btn-success text-white mt-2" href="shop-single.html"><i
-                                                    class="far fa-eye"></i></a></li>
-                                        <li><a class="btn btn-success text-white mt-2" href="shop-single.html"><i
-                                                    class="fas fa-cart-plus"></i></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <!-- fin iconos-->
-                            <!-- informacion del producto-->
-                            <div class="card-body">
-                                <a href="shop-single.html" class="h3 text-decoration-none">Oupidatat non</a>
-                                <ul class="w-100 list-unstyled d-flex justify-content-between mb-0">
-                                    <li>M/L/X/XL</li>
-                                    <li class="pt-2">
-                                        <span
-                                            class="product-color-dot color-dot-red float-left rounded-circle ml-1"></span>
-                                        <span
-                                            class="product-color-dot color-dot-blue float-left rounded-circle ml-1"></span>
-                                        <span
-                                            class="product-color-dot color-dot-black float-left rounded-circle ml-1"></span>
-                                        <span
-                                            class="product-color-dot color-dot-light float-left rounded-circle ml-1"></span>
-                                        <span
-                                            class="product-color-dot color-dot-green float-left rounded-circle ml-1"></span>
-                                    </li>
-                                </ul>
-                                <ul class="list-unstyled d-flex justify-content-center mb-1">
-                                    <li>
-                                        <i class="text-warning fa fa-star"></i>
-                                        <i class="text-warning fa fa-star"></i>
-                                        <i class="text-warning fa fa-star"></i>
-                                        <i class="text-muted fa fa-star"></i>
-                                        <i class="text-muted fa fa-star"></i>
-                                    </li>
-                                </ul>
-                                <p class="text-center mb-0">$250.00</p>
-                            </div>
-                        </div>
-                    </div>
 
+                    <!-- script para llenar  dinamicamente mostrando los productos-->
                     <script>
-                        let etiqueta_productos = document.getElementById("etiqueta_productos");
+                        //obtener el parámetro de la URL
+                        const urlParams = new URLSearchParams(window.location.search);
+                        const categoria = urlParams.get('cat'); // null si no existe
 
-                        lista_productos.forEach(producto => {
+                        let etiqueta_productos = document.getElementById("etiqueta_productos");
+                        let productos_filtrados = obtenerProductosServicios(categoria);
+
+                        productos_filtrados.forEach(producto => {
                             let div = document.createElement("div");
                             div.classList.add("col-md-4");
 
-                            // ⭐ Generar estrellas con un for
+                            //  Generar estrellas con un for
                             let estrellas = "";
                             for (let i = 1; i <= 5; i++) {
                                 if (i <= producto.clasificacion) {
@@ -144,7 +102,7 @@ https://templatemo.com/tm-559-zay-shop
           <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
             <ul class="list-unstyled">
               <li><a class="btn btn-success text-white" href="#"><i class="far fa-heart"></i></a></li>
-              <li><a class="btn btn-success text-white mt-2" href="#"><i class="far fa-eye"></i></a></li>
+              <li><a class="btn btn-success text-white mt-2" href="detalle_producto.html?codigo_producto=${producto.codigo}"><i class="far fa-eye"></i></a></li>
               <li><a class="btn btn-success text-white mt-2" href="#"><i class="fas fa-cart-plus"></i></a></li>
             </ul>
           </div>
@@ -180,7 +138,7 @@ https://templatemo.com/tm-559-zay-shop
                     </script>
 
                     <!-- inicio  paginacion -->
-                    <div div="row">
+                    <div class="row">
                         <ul class="pagination pagination-lg justify-content-end">
                             <li class="page-item disabled">
                                 <a class="page-link active rounded-0 mr-3 shadow-sm border-top-0 border-left-0" href="#"
