@@ -18,6 +18,7 @@
         href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&display=swap">
     <link rel="stylesheet" href="/css/fontawesome.min.css">
     <script src="basedatos/datos.js"></script>
+    <script src="basedatos/consultas.js"></script>
     <!--
     
 TemplateMo 559 Zay Shop
@@ -65,10 +66,12 @@ https://templatemo.com/tm-559-zay-shop
             </script>
 
             <div class="col-lg-9">
+                <!-- listado de productos a la derecha-->
 
-                <div class="row">
+                <div id="etiqueta_productos" class="row">
                     <div class="col-md-4">
                         <div class="card mb-4 product-wap rounded-0">
+                            <!-- iconos-->
                             <div class="card rounded-0">
                                 <img class="card-img rounded-0 img-fluid" src="assets/img/shop_01.jpg">
                                 <div
@@ -83,6 +86,8 @@ https://templatemo.com/tm-559-zay-shop
                                     </ul>
                                 </div>
                             </div>
+                            <!-- fin iconos-->
+                            <!-- informacion del producto-->
                             <div class="card-body">
                                 <a href="shop-single.html" class="h3 text-decoration-none">Oupidatat non</a>
                                 <ul class="w-100 list-unstyled d-flex justify-content-between mb-0">
@@ -114,6 +119,67 @@ https://templatemo.com/tm-559-zay-shop
                         </div>
                     </div>
 
+                    <script>
+                        let etiqueta_productos = document.getElementById("etiqueta_productos");
+
+                        lista_productos.forEach(producto => {
+                            let div = document.createElement("div");
+                            div.classList.add("col-md-4");
+
+                            // ⭐ Generar estrellas con un for
+                            let estrellas = "";
+                            for (let i = 1; i <= 5; i++) {
+                                if (i <= producto.clasificacion) {
+                                    estrellas += `<li><i class="fa fa-star text-warning"></i></li>`; // estrella amarilla
+                                } else {
+                                    estrellas += `<li><i class="fa fa-star text-secondary"></i></li>`; // estrella gris
+                                }
+                            }
+
+                            div.innerHTML = `
+      <div class="card mb-4 product-wap rounded-0">
+        <!-- Imagen + iconos -->
+        <div class="card rounded-0">
+          <img class="card-img rounded-0 img-fluid" src="${producto.imagen}" alt="${producto.nombre}">
+          <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
+            <ul class="list-unstyled">
+              <li><a class="btn btn-success text-white" href="#"><i class="far fa-heart"></i></a></li>
+              <li><a class="btn btn-success text-white mt-2" href="#"><i class="far fa-eye"></i></a></li>
+              <li><a class="btn btn-success text-white mt-2" href="#"><i class="fas fa-cart-plus"></i></a></li>
+            </ul>
+          </div>
+        </div>
+        <!-- Fin imagen + iconos -->
+
+        <!-- Información del producto -->
+        <div class="card-body">
+          <a href="#" class="h3 text-decoration-none">${producto.nombre}</a>
+
+          <!-- Aquí van las estrellas -->
+          <ul class="list-unstyled d-flex justify-content-center mb-2">
+            ${estrellas}
+          </ul>
+
+          <ul class="w-100 list-unstyled d-flex justify-content-between mb-0">
+            <li class="pt-2">
+              <span class="product-color-dot color-dot-red float-left rounded-circle ml-1"></span>
+              <span class="product-color-dot color-dot-blue float-left rounded-circle ml-1"></span>
+              <span class="product-color-dot color-dot-black float-left rounded-circle ml-1"></span>
+              <span class="product-color-dot color-dot-light float-left rounded-circle ml-1"></span>
+              <span class="product-color-dot color-dot-green float-left rounded-circle ml-1"></span>
+            </li>
+          </ul>
+
+          <p class="text-center mb-0">$ Precio</p>
+        </div>
+      </div>
+    `;
+
+                            etiqueta_productos.appendChild(div);
+                        });
+                    </script>
+
+                    <!-- inicio  paginacion -->
                     <div div="row">
                         <ul class="pagination pagination-lg justify-content-end">
                             <li class="page-item disabled">

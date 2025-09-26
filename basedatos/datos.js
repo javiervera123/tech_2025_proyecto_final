@@ -28,64 +28,159 @@ const elementos_carrusel = [
 ]
 const lista_categorias =[
     {   
+    
     nombre: "Granos y Cereales",
+    codigo: 1,
     descripcion: "Arroz, lentejas, fríjoles, avena, maíz",
     imagen:"image/categoria1"
     },
     {
     nombre: "Lácteos y Derivados",
+    codigo: 2,
     descripcion: "Leche, yogures, quesos, mantequilla, crema.",
     imagen:"https://placehold.co/400x400?text=Lácteos"
     },
     {   
     nombre: "Carnes y Pescados",
+    codigo: 3,
     descripcion: "Res, cerdo, pollo, pescado, embutidos.",
     imagen:"image/categoria1"
     },
     {
     nombre: "Frutas y Verduras",
+    codigo: 4,
     descripcion: "Frescas, congeladas, hierbas y hortalizas.",
     imagen:"https://placehold.co/400x400?text=Frutas"
     },
     {   
     nombre: "Panadería y Pastelería",
+    codigo: 5,
     descripcion: "Pan, tortas, galletas, arepas",
     imagen:"image/categoria1"
     },
     {
     nombre: "Bebidas",
+    codigo: 6,
     descripcion: "Gaseosas, jugos, agua, energizantes, café, té.",
     imagen:"image/categoria1"
     },
     {   
     nombre: "Aseo del Hogar",
+    codigo: 7,
     descripcion: "Detergentes, jabones, limpiadores, desinfectantes",
     imagen:"image/categoria1"
     },
     {
     nombre: "Cuidado Personal",
+    codigo: 8,
     descripcion: "Shampoo, jabón corporal, cremas, desodorantes.",
     imagen:"image/categoria1"
     },
     {   
     nombre: "Enlatados y Conservas",
+    codigo: 9,
     descripcion: "Atún, maíz dulce, salsas, sopas, conservas de frutas.",
     imagen:"image/categoria1"
     },
     {
     nombre: "Aceites y Condimentos",
+    codigo: 10,
     descripcion: "Aceites, sal, azúcar, especias, salsas.",
     imagen:"image/categoria1"
     },
     {   
     nombre: "Snacks y Golosinas",
+    codigo: 11,
     descripcion: "Papas fritas, chocolates, caramelos, galletas.",
     imagen:"image/categoria1"
     },
     {
     nombre: "Productos de Limpieza y Desinfección",
+    codigo: 12,
     descripcion: "Aceites, sal, azúcar, especias, salsas.",
     imagen:"image/categoria1"
     }
 ]
 console.log("✅ datos.js cargado correctamente");
+
+const lista_productos =[
+    {   
+    codigo_categoria: 101,
+    nombre: "Arroz Diana",
+    descripcion: "Arroz blanco de grano largo, 1kg",
+    categoria: 1,
+    imagen:"image/arrozdiana",
+    precio: 2300,
+    clasificacion: 3.0
+    },
+    {
+    codigo_categoria: 102,
+    nombre: "Leche Alpina Entera",
+    descripcion: "Leche entera pasteurizada, 1 litro",
+    categoria: 2,
+    imagen:"image/lechealpina",
+    precio: 5500,
+    clasificacion: 4.0
+    },
+    {   
+    codigo_categoria: 103,
+    nombre: "Pollo Bandeja ",
+    descripcion: "Arroz blanco de grano largo, 1kg",
+    categoria: 3,
+    imagen:"image/pollo bandeja",
+    precio: 24000,
+    clasificacion: 4.5
+    },
+    {
+    codigo_categoria: 103,
+    nombre: "Carne Molida",
+    descripcion: "Carne molida de res, 500g",
+    categoria: 3,
+    imagen:"image/carnemolida",
+    precio: 16000,
+    clasificacion: 5.0
+    },
+    {   
+    codigo_categoria: 104,
+    nombre: "papa criolla",
+    descripcion: "papa criolla x kilo",
+    categoria: 4,
+    imagen:"image/papacriolla",
+    precio: 4000,
+    clasificacion: 5.0
+    },
+    {
+     codigo_categoria: 105,
+    nombre: "pan tajado",
+    descripcion: "pan tajado familiar y fresco",
+    categoria: 5,
+    imagen:"image/pantajado",
+    precio: 4500,
+    clasificacion: 5.0
+    },
+    {   
+    codigo_categoria: 106,
+    nombre: "Gaseosa Coca Cola",
+    descripcion: " Gaseosa Coca Cola 1.5 litros",
+    categoria: 6,
+    imagen:"image/gaseosa",
+    precio: 7000,
+    clasificacion: 5.0
+    },
+    {
+    codigo_categoria: 107,
+    nombre: "gaseosa pepsi",
+    descripcion: " Gaseosa pepsi 1.5 litros",
+    imagen:"image/gaseosa",
+    precio: 7000,
+    clasificacion: 5.0
+    },
+    {   
+    codigo_categoria: 108,
+    nombre: "shampoo head & shoulders",
+    descripcion: " shampoo head & shoulders 400ml",
+    imagen:"image/shampoo",
+    precio: 25000,
+    clasificacion: 3.7
+    }
+]
