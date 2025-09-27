@@ -186,3 +186,5 @@ const lista_productos =[
     clasificacion: 3.7
     }
 ]
+//LISTA QUE REPRESENTA UN CARRITO DE COMPRAS
+let carrito = [];

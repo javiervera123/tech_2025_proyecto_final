@@ -178,7 +178,7 @@ https://templatemo.com/tm-559-zay-shop
                                 </li>
                             </ul>
 
-                            
+
                             <form action="" method="GET">
                                 <input type="hidden" name="product-title" value="Activewear">
                                 <div class="row">
@@ -219,19 +219,19 @@ https://templatemo.com/tm-559-zay-shop
     </section>
     <!-- Close Content -->
     <script>
- 
+
         // Obtener el parámetro de la URL
         const urlParams = new URLSearchParams(window.location.search);
         const codigo_producto = parseInt(urlParams.get('codigo_producto')); // null si no existe
- 
+
         let producto = obtenerProductoServicioPorCodigo(codigo_producto);
         if (producto) {
             document.getElementById("product-detail").src = producto.imagen;
             document.getElementById("nombre-producto").innerText = producto.nombre;
             document.getElementById("costo-producto").innerText = `$${producto.precio.toLocaleString("es-CO")}`;
-            document.getElementById("descripcion-producto").innerText = producto.descripcion;   
+            document.getElementById("descripcion-producto").innerText = producto.descripcion;
         }
- 
+
     </script>
 
 

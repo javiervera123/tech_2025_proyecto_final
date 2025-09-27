@@ -38,7 +38,7 @@ https://templatemo.com/tm-559-zay-shop
         <div class="row">
 
             <div class="col-lg-3">
-                <h1 class="h2 pb-4">Categorías</h1>
+                <h2 class="h2 pb-4">Categorías</h2>
                 <ul id="etiqueta_categorias" class="list-unstyled ">
                     <li class="pb-3">
                         <a class="collapsed d-flex justify-content-between h4 text-decoration-none"
@@ -66,10 +66,12 @@ https://templatemo.com/tm-559-zay-shop
                 });
             </script>
 
-            <div class="col-lg-9">
+
+            <div class="col-lg-6">
                 <!-- listado de productos a la derecha-->
 
                 <div id="etiqueta_productos" class="row">
+
 
                     <!-- script para llenar  dinamicamente mostrando los productos-->
                     <script>
@@ -101,9 +103,9 @@ https://templatemo.com/tm-559-zay-shop
           <img class="card-img rounded-0 img-fluid" src="${producto.imagen}" alt="${producto.nombre}">
           <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
             <ul class="list-unstyled">
-              <li><a class="btn btn-success text-white" href="#"><i class="far fa-heart"></i></a></li>
+              
               <li><a class="btn btn-success text-white mt-2" href="detalle_producto.html?codigo_producto=${producto.codigo}"><i class="far fa-eye"></i></a></li>
-              <li><a class="btn btn-success text-white mt-2" href="#"><i class="fas fa-cart-plus"></i></a></li>
+              <li><a class="btn btn-success text-white mt-2 btn-add" ><i class="fas fa-cart-plus"></i></a></li>
             </ul>
           </div>
         </div>
@@ -128,14 +130,21 @@ https://templatemo.com/tm-559-zay-shop
             </li>
           </ul>
 
-          <p class="text-center mb-0">$ Precio</p>
+          <p class="text-center mb-0">$${producto.precio}</p>
         </div>
       </div>
     `;
 
                             etiqueta_productos.appendChild(div);
+                            // Agregar evento al botón "Agregar al carrito"
+                            div.querySelector(".btn-add").addEventListener('click', (e) => {
+                                //e.preventDefault(); // Evita navegación si hay href
+                                agregarProducto(producto);
+                                // Aquí puedes agregar lógica para agregar al carrito
+                            });
                         });
                     </script>
+
 
                     <!-- inicio  paginacion -->
                     <div class="row">
@@ -157,9 +166,43 @@ https://templatemo.com/tm-559-zay-shop
                 </div>
 
             </div>
+            <!-- End listado de productos a la derecha-->
+            <div class="col-lg-3">
+                <!-- carrito de compras-->
+
+                <div id="etiqueta_carrito_contenedor" class="row">
+                    <h3 class="h2 pb-4">Carrito de Compras</h3>
+                    
+                    <ul id="etiqueta_carrito" class="list-unstyled"> </ul>
+
+                        <div class="d-flex justify-content-between mt-2">
+                            <strong>Total:</strong>
+                            $<span id="etiqueta_total">0</span>
+                        </div>
+
+                        <div class="d-flex justify-content-between mt-3">
+                            <!-- Botón para vaciar -->
+                            <div id="boton-vaciar" class="btn btn-danger text-decoration-none"
+                                onclick="vaciarCarrito()">Vaciar</div>
+
+                            <!-- Botón para pagar -->
+                            <div class="btn btn-success text-decoration-none" id="boton-pagar">
+                                <a class="text-decoration-none btn-success text-white" href="pagar.html">Pagar</a>
+                            </div>
+                        </div>
+                        <!-- script para llenar  dinamicamente mostrando los productos en el carrito-->
+                  
+                    <script>
+                        mostrarCarrito();
+                    </script>
+
+                </div>
+            </div>
+
         </div>
     </div>
     <!-- End Content -->
+
 
 
     <!-- Contenido de la página - Final -->
