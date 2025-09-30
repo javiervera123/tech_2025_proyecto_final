@@ -26,6 +26,9 @@ console.log(" consultas.js cargado correctamente");
 function mostrarCarrito() {
     let etiqueta_carrito = document.getElementById("etiqueta_carrito");
     etiqueta_carrito.innerHTML = "";
+    let costo_total = 0;
+
+    let carrito = obtenerCarrito();
 
     carrito.forEach((elemento) => {
         let li = document.createElement("li");
@@ -48,21 +51,36 @@ function mostrarCarrito() {
     document.getElementById("etiqueta_total").textContent = total;
 }
 function obtenerCarrito() {
-   
+
     return carrito;
 }
 function agregarProducto(producto) {
     carrito.push(producto);
+    // Almacenar la información del carrito de compras en el local storage
+    localStorage.setItem("carrito", JSON.stringify(carrito));
     mostrarCarrito();
 }
 
 function eliminarProducto(codigo) {
     carrito = carrito.filter(item => item.codigo !== Number(codigo));
+    // Almacenar la información del carrito de compras en el local storage
+    localStorage.setItem("carrito", JSON.stringify(carrito));
     mostrarCarrito();
 }
 
 
 function vaciarCarrito() {
     carrito = [];
+    // Almacenar la información del carrito de compras en el local storage
+    localStorage.setItem("carrito", JSON.stringify(carrito));
     mostrarCarrito();
+}
+
+function obtenerCarrito() {
+    let carrito = [];
+    const str = localStorage.getItem('carrito');
+    if (str) {
+        carrito = JSON.parse(str);
+    }
+    return carrito;
 }

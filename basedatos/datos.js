@@ -109,7 +109,7 @@ const lista_productos =[
     nombre: "Arroz Diana",
     descripcion: "Arroz blanco de grano largo, 1kg",
     categoria: 1,
-    imagen:"image/arrozdiana.jpg",
+    imagen:"image/arroz.jpg",
     precio: 2300,
     clasificacion: 3.0
     },
@@ -118,7 +118,7 @@ const lista_productos =[
     nombre: "Leche Alpina Entera",
     descripcion: "Leche entera pasteurizada, 1 litro",
     categoria: 2,
-    imagen:"image/lechealpina.jpg",
+    imagen:"image/leche.jpg",
     precio: 5500,
     clasificacion: 4.0
     },
@@ -127,7 +127,7 @@ const lista_productos =[
     nombre: "Pollo Bandeja ",
     descripcion: "Pollo entero fresco, 1.5kg aprox",
     categoria: 3,
-    imagen:"image/pollobandeja.jpg",
+    imagen:"image/pollo.jpg",
     precio: 24000,
     clasificacion: 4.5
     },
@@ -145,7 +145,7 @@ const lista_productos =[
     nombre: "papa criolla",
     descripcion: "papa criolla x kilo",
     categoria: 4,
-    imagen:"image/papacriolla.jpg",
+    imagen:"image/criolla.jpg",
     precio: 4000,
     clasificacion: 5.0
     },
@@ -163,7 +163,7 @@ const lista_productos =[
     nombre: "Gaseosa Coca Cola",
     descripcion: " Gaseosa Coca Cola 1.5 litros",
     categoria: 6,
-    imagen:"image/gaseosa.jpg",
+    imagen:"image/cocacola.jpg",
     precio: 7000,
     clasificacion: 5.0
     },
@@ -172,7 +172,7 @@ const lista_productos =[
     nombre: "gaseosa pepsi",
     descripcion: " Gaseosa pepsi 1.5 litros",
     categoria: 6,
-    imagen:"image/gaseosa.jpg",
+    imagen:"image/pepsi.jpg",
     precio: 7000,
     clasificacion: 5.0
     },

@@ -28,11 +28,82 @@ https://templatemo.com/tm-559-zay-shop
 
 <body>
     <!-- Contenedor para cargar la barra de menú usando JavaScript -->
-    <div id="menu"></div> 
+    <div id="menu"></div>
     <!-- Contenido de la página - Inicio -->
-     
-    <!-- Contenido de la página - Final --> 
-     <!-- Contenedor para cargar el pie de página usando JavaScript -->
+
+    <section class="container my-5">
+        <h2 class="mb-4 text-center">Formulario de Pago</h2>
+        <form id="pagoForm" class="row g-3">
+            <!-- Datos del cliente -->
+            <div class="col-md-6">
+                <label for="nombre" class="form-label">Nombre completo</label>
+                <input type="text" class="form-control" id="nombre" required>
+            </div>
+            <div class="col-md-6">
+                <label for="email" class="form-label">Correo electrónico</label>
+                <input type="email" class="form-control" id="email" required>
+            </div>
+
+            <!-- Dirección -->
+            <div class="col-12">
+                <label for="direccion" class="form-label">Dirección de envío</label>
+                <input type="text" class="form-control" id="direccion" required>
+            </div>
+
+            <!-- Métodos de pago -->
+            <div class="col-md-6">
+                <label for="tarjeta" class="form-label">Número de tarjeta</label>
+                <input type="text" class="form-control" id="tarjeta" maxlength="16" required>
+            </div>
+            <div class="col-md-3">
+                <label for="expiracion" class="form-label">Expiración</label>
+                <input type="text" class="form-control" id="expiracion" placeholder="MM/AA" required>
+            </div>
+            <div class="col-md-3">
+                <label for="cvv" class="form-label">Contraseña</label>
+                <input type="password" class="form-control" id="cvv" maxlength="3" required>
+            </div>
+
+            <!-- Botón -->
+            <div class="col-12 text-center">
+                <button type="submit" class="btn btn-primary">Pagar</button>
+            </div>
+        </form>
+
+        <!-- Aquí mostramos el resultado -->
+        <div id="resultado" class="mt-4 alert d-none"></div>
+    </section>
+
+    <script>
+        document.getElementById("pagoForm").addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            // Obtener datos
+            const datos = {
+                nombre: document.getElementById("nombre").value,
+                email: document.getElementById("email").value,
+                direccion: document.getElementById("direccion").value,
+                tarjeta: document.getElementById("tarjeta").value,
+                expiracion: document.getElementById("expiracion").value,
+                cvv: document.getElementById("cvv").value
+            };
+
+            // Guardar en LocalStorage (simulación de pago)
+            localStorage.setItem("pago", JSON.stringify(datos));
+
+            // Mostrar mensaje
+            const resultado = document.getElementById("resultado");
+            resultado.className = "mt-4 alert alert-success";
+            resultado.textContent = " Pago procesado con éxito (simulación).";
+
+            // Limpiar formulario
+            document.getElementById("pagoForm").reset();
+        });
+    </script>
+
+
+    <!-- Contenido de la página - Final -->
+    <!-- Contenedor para cargar el pie de página usando JavaScript -->
     <div id="pie"></div>
 
     <!-- Start Script -->
