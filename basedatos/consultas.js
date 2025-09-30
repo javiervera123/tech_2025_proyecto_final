@@ -54,14 +54,20 @@ function obtenerCarrito() {
 
     return carrito;
 }
-function agregarProducto(producto) {
+function agregarProducto(producto, mostrar=true) {
+    let carrito = obtenerCarrito();
     carrito.push(producto);
     // Almacenar la información del carrito de compras en el local storage
     localStorage.setItem("carrito", JSON.stringify(carrito));
-    mostrarCarrito();
+    if (mostrar===true) {
+        // Mostrar el carrito actualizado
+        mostrarCarrito();
+    }
+   
 }
 
 function eliminarProducto(codigo) {
+    let carrito = obtenerCarrito();
     carrito = carrito.filter(item => item.codigo !== Number(codigo));
     // Almacenar la información del carrito de compras en el local storage
     localStorage.setItem("carrito", JSON.stringify(carrito));
