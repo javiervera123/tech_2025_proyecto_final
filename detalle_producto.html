@@ -17,8 +17,10 @@
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&display=swap">
     <link rel="stylesheet" href="/css/fontawesome.min.css">
-    <script src="basedatos/datos.js"></script>
-    <script src="basedatos/consultas.js"></script>
+
+
+    <script src="./basedatos/datos.js"></script>
+    <script src="./js/consultas.js"></script>
     <!--
     
 TemplateMo 559 Zay Shop
@@ -38,8 +40,7 @@ https://templatemo.com/tm-559-zay-shop
             <div class="row">
                 <div class="col-lg-5 mt-5">
                     <div class="card mb-3">
-                        <img class="card-img img-fluid" src="assets/img/product_single_10.jpg" alt="Card image cap"
-                            id="product-detail">
+                        <img class="card-img img-fluid" src="/image/foto3.jpg" alt="Card" id="product-detail">
                     </div>
                     <div class="row">
                         <!--Start Controls-->
@@ -61,19 +62,19 @@ https://templatemo.com/tm-559-zay-shop
                                     <div class="row">
                                         <div class="col-4">
                                             <a href="#">
-                                                <img class="card-img img-fluid" src="assets/img/product_single_01.jpg"
+                                                <img class="card-img img-fluid" src="/image/foto1.jpg"
                                                     alt="Product Image 1">
                                             </a>
                                         </div>
                                         <div class="col-4">
                                             <a href="#">
-                                                <img class="card-img img-fluid" src="assets/img/product_single_02.jpg"
+                                                <img class="card-img img-fluid" src="/image/foto2.jpg"
                                                     alt="Product Image 2">
                                             </a>
                                         </div>
                                         <div class="col-4">
                                             <a href="#">
-                                                <img class="card-img img-fluid" src="assets/img/product_single_03.jpg"
+                                                <img class="card-img img-fluid" src="/image/foto3.jpg"
                                                     alt="Product Image 3">
                                             </a>
                                         </div>
@@ -86,19 +87,19 @@ https://templatemo.com/tm-559-zay-shop
                                     <div class="row">
                                         <div class="col-4">
                                             <a href="#">
-                                                <img class="card-img img-fluid" src="assets/img/product_single_04.jpg"
+                                                <img class="card-img img-fluid" src="image/leche.jpg"
                                                     alt="Product Image 4">
                                             </a>
                                         </div>
                                         <div class="col-4">
                                             <a href="#">
-                                                <img class="card-img img-fluid" src="assets/img/product_single_05.jpg"
+                                                <img class="card-img img-fluid" src="/image/arroz.jpg"
                                                     alt="Product Image 5">
                                             </a>
                                         </div>
                                         <div class="col-4">
                                             <a href="#">
-                                                <img class="card-img img-fluid" src="assets/img/product_single_06.jpg"
+                                                <img class="card-img img-fluid" src="/image/cocacola.jpg"
                                                     alt="Product Image 6">
                                             </a>
                                         </div>
@@ -111,19 +112,19 @@ https://templatemo.com/tm-559-zay-shop
                                     <div class="row">
                                         <div class="col-4">
                                             <a href="#">
-                                                <img class="card-img img-fluid" src="assets/img/product_single_07.jpg"
+                                                <img class="card-img img-fluid" src="/image/foto4.jpg"
                                                     alt="Product Image 7">
                                             </a>
                                         </div>
                                         <div class="col-4">
                                             <a href="#">
-                                                <img class="card-img img-fluid" src="assets/img/product_single_08.jpg"
+                                                <img class="card-img img-fluid" src="/image/foto4.jpg"
                                                     alt="Product Image 8">
                                             </a>
                                         </div>
                                         <div class="col-4">
                                             <a href="#">
-                                                <img class="card-img img-fluid" src="assets/img/product_single_09.jpg"
+                                                <img class="card-img img-fluid" src="/image/foto4.jpg"
                                                     alt="Product Image 9">
                                             </a>
                                         </div>
@@ -200,14 +201,14 @@ https://templatemo.com/tm-559-zay-shop
                                     </div>
                                 </div>
                                 <div class="row pb-3">
-                                    
+
                                     <div class="col d-grid">
-                                        <button type="submit" class="btn btn-success btn-lg" name="submit"
-                                            value="addtocard">Agregar al carrito</button>
+                                        <button id="boton_agregar" type="button" class="btn btn-success btn-lg"
+                                            name="submit" value="addtocard">Agregar al carrito</button>
                                     </div>
                                     <div class="col d-grid">
-                                        <button type="submit" class="btn btn-success btn-lg" name="submit"
-                                            value="buy">Regresar</button>
+                                        <button type="button" class="btn btn-success btn-lg"
+                                            onclick="window.history.back()">Regresar</button>
                                     </div>
                                 </div>
                             </form>
@@ -231,8 +232,12 @@ https://templatemo.com/tm-559-zay-shop
             document.getElementById("nombre-producto").innerText = producto.nombre;
             document.getElementById("costo-producto").innerText = `$${producto.precio.toLocaleString("es-CO")}`;
             document.getElementById("descripcion-producto").innerText = producto.descripcion;
-        }
 
+            document.getElementById('boton_agregar').addEventListener('click', function () {
+                agregarProductoServicio(producto);
+                window.history.back();
+            });
+        }
     </script>
 
 
